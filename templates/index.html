@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>肌診断アプリ</title>
+  
+  <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+   <!-- googleフォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+  <header>
+  <img src="{{ url_for('static', filename='fixed-images/header.jpeg') }}" alt="ヘッダー画像">
+  </header>
+  
+  <main>
+    <h1>肌診断と美肌アドバイスを提供する<br>
+      ビューティーチェックアプリへようこそ🎀</h1>
+      
+      <section class="feature-section">
+        <h2>このアプリがお届けする3つのご提案</h2>
+        <ul class="feature-list" data-module="FadeIn">
+          <li class="feature-item">
+            <div class="feature-img"><img src="/path/to/your/image1.svg" alt="肌チェック"></div>
+            <p class="feature-title">肌チェック</p>
+          </li>
+            
+          <li class="feature-item">
+            <div class="feature-img"><img src="/images/intro_item_2.svg" alt="ベースメイク チェック"></div>
+            <p class="feature-title">ベースメイク チェック</p>
+          </li>
+            
+          <li class="feature-item">
+            <div class="feature-img"><img src="/images/intro_item_3.svg" alt="ポイントメイク チェック"></div>
+            <p class="feature-title">ポイントメイク チェック</p>
+          </li>
+        </ul>
+      </section>
+      
+
+      <div class="description-text">
+        <p>デジタル×パーソナル提案を叶えるトータルビューティーサポーターです。</p>
+        <p>画像を送信するだけで<br>
+          あなたの肌状態・顔特徴を解析し、最適なアイテムをおすすめします。</p>
+      </div>
+      
+
+      <section class="diagnostic-section">
+        <h2>診断メニュー</h2>
+        <ul class="diagnostic-button-list">
+          <li class="diagnostic-button-item">
+            <button class="diagnostic-btn" data-modal-target="skin" data-module="Modal PushDataLayer" data-ga-Category="hadamite_shidan_e" data-ga-label="hada_01">肌診断</button>
+          </li>
+
+          <li class="diagnostic-button-item">
+            <button class="diagnostic-btn" data-modal-target="personal_color" data-module="Modal PushDataLayer" data-ga-Category="hadamite_shidan_e" data-ga-label="personal_color_01">パーソナルカラー診断</button>
+          </li>
+
+          <li class="diagnostic-button-item">
+            <button class="diagnostic-btn" data-modal-target="makeup" data-module="Modal PushDataLayer" data-ga-Category="hadamite_shidan_e" data-ga-label="makeup_01">メイクアドバイス</button>
+          </li>
+        </ul>
+      </section>
+  </main>
+
+
+
+    <footer id="footer">
+      <img src="{{ url_for('static', filename='footer.jpeg') }}" alt="フッター画像">
+      <p>&copy; 2025 ビューティーチェックアプリ</p>
+    </footer>
+
+  </body>
+</html>
+
+
+
+
+
