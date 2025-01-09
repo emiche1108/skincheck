@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>画像アップロード</title>
+
+        <!--ユーザーが写真をアップロードできる用のページ-->
+        <!-- Flaskの url_for関数を使って、static/フォルダ内のCSSファイルを読み込む-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+        <!-- googleフォント -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    
+    </head>
+
+
+    <body>
+        <header>
+            <img src="{{ url_for('static', filename='header.jpeg') }}" alt="ヘッダー画像">
+        </header>
+        
+        <h1>肌診断アプリ</h1>
+
+        <!-- 画像アップロードフォーム -->
+        <h2>写真をアップロードしてください📷</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="file">写真を選択:</label>
+            
+            <!--  "image/*"とすることで、画像以外のアップデートを不可能にしておく-->
+              <input type="file" name="file" id="file" accept="image/*" required>  
+              <br><br>
+              <button type="submit">アップロード</button>
+        </form>
+        
+        <footer id="footer">
+        <!-- フッター画像も Flask の url_for で指定 -->
+            <img src="{{ url_for('static', filename='footer.jpeg') }}" alt="フッター画像">
+            <p>&copy; 2025 ビューティーチェックアプリ</p>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>肌診断結果</title>
+
+    <!-- googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- スタイルの読み込み -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='fixed-images/header.jpeg') }}" alt="ヘッダー画像">
+    </header>
+
+
+    <h1>画像処理が完了しました。</h1>
+    <h2>オリジナル画像</h2>
+    <img src="{{ url_for('static', filename='uploads/' + original_image) }}" alt="オリジナル画像" width="300">
+    
+    <h2>処理後画像</h2>
+    <img src="{{ url_for('static', filename='uploads/' + processed_image) }}" alt="処理後画像" width="300">
+
+
+    <h2>肌診断結果</h2>
+    <p><strong>油分量:</strong> {{ oil_level }}%</p>
+    <p><strong>水分量:</strong> {{ moisture_level }}%</p>
+    <p><strong>肌のテクスチャ:</strong> {{ texture }}</p>
+    <p><strong>赤み:</strong> {{ redness }}</p>
+    <p><strong>クマ:</strong> {{ dark_circles }}</p>
+    <p><strong>シミ:</strong> {{ spots }}</p>
+
+
+
+    
+    <footer id="footer">
+        <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+        <p>&copy; 2025 ビューティーチェックアプリ</p>
+    </footer>
+</body>
+
+</html>
