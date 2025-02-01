@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌診断 STEP3/3</title>
+
+    <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+         
+    <!-- Googleフォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='fixed-images/header_skin.jpg') }}" alt="ヘッダー画像">
+    </header>
+
+
+    <main>
+        <section id="upload">
+            <div class="top-area"> 
+                <h1 class="main-title">肌診断</h1>
+                <p class="step">STEP 3/3</p>
+            </div>
+
+            <form id="upload-form" action="{{ url_for('upload_photo_page') }}" method="post" enctype="multipart/form-data">
+                <label for="file-upload" class="upload-label">画像ファイルを選択:</label>
+                <input type="file" id="file-upload" name="file" accept="image/png, image/jpeg, image/jpg, image/gif" required>
+                <button type="submit" class="button upload">アップロード</button>
+            </form>
+                       
+            
+            <div class="notice-text">
+                <p>対応形式: PNG, JPG, JPEG, GIF</p>
+                <p>高解像度の画像を推奨します。解像度が高いほど正確な解析が行えます。</p>
+                <p>正面からの1人の写真を選んでください。背景がシンプルな方が効果的です。</p>
+                <p>※アップロードされた画像は解析後に削除されます。</p>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer id="footer">
+        <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+        <div id="Copyright">
+            &copy; 2025 ビューティーチェックアプリ
+        </div>
+    </footer>
+
+</body>
+
+</html>

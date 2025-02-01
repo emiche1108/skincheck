@@ -1,0 +1,20 @@
+# macOSのシステムファイルを無視
+.DS_Store
+.localized
+
+# Python キャッシュファイルを無視
+__pycache__/
+*.pyc
+
+# Javaのライブラリを無視
+*.jar
+
+# 不要なファイルを無視
+face-api.js-master/
+face-api.js.map
+Google Chrome.app/
+IMG_*.PNG
+
+# 削除したい `image.py` も無視
+image.py
+image.py

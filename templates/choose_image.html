@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>肌診断 STEP2/3</title>
+        
+        <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+         
+        <!-- Googleフォント -->
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    </head>
+
+
+
+    <body>
+        <header>
+            <img src="{{ url_for('static', filename='fixed-images/header_skin.jpg') }}" alt="ヘッダー画像">
+        </header>
+
+
+
+        <main>
+          <section class="form-section">
+            <div class="top-area">
+              <h1 class="main-title">肌診断</h1>
+              <p class="step">STEP 2/3</p>
+            </div>
+        
+            <p>お好みの計測方法を選択し、次へ進んでください。<br></p>
+            <p>保存済みの画像を使用する場合は「アップロードを選択」<br>
+              写真撮影が必要な場合は「カメラ撮影を選択」をクリックしてください。</p>
+        
+            <section id="method">
+              <div class="method-left">
+                <a href="{{ url_for('upload_photo_page') }}">
+                  <button type="button" class="choose-btn" aria-label="画像アップロードを選択">
+                    アップロードを選択
+                  </button>
+                </a>
+              </div>
+              
+              <div class="method-right">
+                <a href="{{ url_for('take_photo_page') }}">
+                  <button type="button" class="choose-btn" aria-label="カメラ撮影を選択">
+                    カメラ撮影を選択
+                  </button>
+                </a>
+              </div>
+            </section>
+          </section>
+        </main>        
+          
+    
+
+        <footer id="footer">
+            <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+            <div id="Copyright">
+                &copy; 2025 ビューティーチェックアプリ
+            </div>
+        </footer>
+        
+    </body>
+</html>

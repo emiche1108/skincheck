@@ -1,0 +1,42 @@
+body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.loader {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.circle {
+    position: absolute;
+    width: 120px;  /* 円の大きさ */
+    height: 120px;
+    border-radius: 50%;
+    filter: blur(10px);   /* ぼやけた表示 */
+    opacity: 0.8;   /* 透けさせる */
+    transition: transform 2s linear;   /* 2秒かけて滑らかに動く */
+}
+
+.pink {
+    background-color: #CE5DA4;
+}
+
+.beige {
+    background-color: #F4DBC7;
+}
+
+.loading-text {
+    font-size: 25px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: black;
+}
+
+
+
