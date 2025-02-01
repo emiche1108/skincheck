@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌診断 STEP1/3</title>
+
+        <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+         
+        <!-- Googleフォント -->
+         <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+         
+</head>
+
+
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='fixed-images/header_skin.jpg') }}" alt="ヘッダー画像">
+    </header>
+    
+    
+    <main>
+        <section class="form-section">
+            <div class="top-area"> 
+                <h1 class="main-title">肌診断を始めます。</h1>
+                <p class="step">STEP 1/3</p>
+            </div>
+            
+            <form method="POST" action="{{ url_for('skinQ') }}">
+                <!-- 年齢 -->
+                 <div class="form-group age-group">
+                    <p>あなたの年齢を教えてください</p>
+                    <input type="number" id="age" name="age" placeholder="年齢" required>
+                </div>
+                
+                <!-- 性別 -->
+                 <div class="form-group gender-group">
+                    <p>あなたの性別を教えてください</p>
+                    <div class="gender-selection">
+                        <label for="male" class="gender-option">
+                            <input type="radio" id="male" name="gender" value="男性" required>男性
+                        </label>
+                        <label for="female" class="gender-option">
+                            <input type="radio" id="female" name="gender" value="女性">女性
+                        </label>
+                        <label for="no_answer" class="gender-option">
+                            <input type="radio" id="no_answer" name="gender" value="回答しない">回答しない
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 肌の状態 -->
+                 <div class="form-group skin-group">
+                    <p>気になっている肌状態を教えてください。(複数回答可)</p>
+                    
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="dry_skin" name="skin_issues" value="乾燥">
+                            <label for="dry_skin">乾燥</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="skin_eruption" name="skin_issues" value="肌荒れ">
+                            <label for="skin_eruption">肌荒れ</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="acne" name="skin_issues" value="ニキビ">
+                            <label for="acne">ニキビ</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="lack_transparency" name="skin_issues" value="透明感のなさ">
+                            <label for="lack_transparency">透明感のなさ</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="pore" name="skin_issues" value="毛穴の目立ち">
+                            <label for="pore">毛穴の目立ち</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="shine" name="skin_issues" value="テカリ">
+                            <label for="shine">テカリ</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="spots" name="skin_issues" value="シミ・ソバカス">
+                            <label for="spots">シミ・ソバカス</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="dark_circles" name="skin_issues" value="くま">
+                            <label for="dark_circles">くま</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="wrinkles" name="skin_issues" value="シワ">
+                            <label for="wrinkles">シワ</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="sagging" name="skin_issues" value="たるみ">
+                            <label for="sagging">たるみ</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="no_issues" name="skin_issues" value="なし">
+                            <label for="no_issues">なし</label>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="form-group">
+                    <a href="{{ url_for('choose_image') }}" class="menu-btn">次へ</a>
+                </div>
+            </form>
+        </section>
+        
+        
+        
+        <footer id="footer">
+            <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+            <div id="Copyright">
+                &copy; 2025 ビューティーチェックアプリ
+            </div>
+        </footer>
+    
+    </body>
+</html>
+

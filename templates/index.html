@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>ビューティーチェックアプリ|TOP</title>
+    
+    <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+     
+     <!-- Googleフォント -->
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  </head>
+  
+  
+
+  <body>
+    <header>
+      <img src="{{ url_for('static', filename='fixed-images/header_welcome.jpg') }}" alt="ヘッダー画像">
+    </header>
+  
+
+    <main>
+      <div class="top-area"> 
+        <h1 class="main-title">肌診断と美肌アドバイスを提供する<br>
+          ビューティーチェックアプリへようこそ</h1>
+      </div>
+      
+      <!-- 3つのサービス -->
+       <section class="services">
+        <h2>美を引き出す、3つのパーソナライズ診断</h2>
+        
+        <ul class="service-list" data-module="FadeIn">
+          <li class="service-item">
+            <div class="service-img">
+              <img src="{{ url_for('static', filename='images/image1.svg') }}" alt="肌診断の画像"></div>
+            <p class="small-text">肌診断</p>
+          </li>
+             
+          <li class="service-item">
+            <div class="service-img">
+              <img src="{{ url_for('static', filename='images/intro_item_2.svg') }}" alt="パーソナルカラーの画像"></div>
+            <p class="small-text">パーソナルカラー診断</p>
+          </li>
+            
+          <li class="service-item">
+            <div class="service-img">
+              <img src="{{ url_for('static', filename='images/intro_item_3.svg') }}" alt="顔タイプ診断の画像"></div>
+              <p class="small-text">顔タイプ診断</p>
+          </li>
+        </ul>
+      </section>
+      
+      <!-- 説明文 -->
+       <div class="description">
+        <p>デジタル×パーソナル提案を叶えるトータルビューティーサポーターです。</p>
+        <p>画像を送信するだけで<br>
+          あなたの肌状態や顔の特徴を解析し、美容に役立つアドバイスをお届けします。</p>
+      </div>
+        
+      <!-- ３つのサービスに関する概要 -->
+       <div class="detailed-summary">
+        <h2>サービス内容</h2>
+        
+        <ul class="summary-list">
+          <li class="summary-item summary-skin-diagnosis">
+            <strong class="summary-title">
+               1️⃣ 肌診断でできること</strong><br>
+               - 7つの指標であなたの肌状態を解析し、今の肌が求めるアドバイスを導き出します。<br>
+               (水分量・皮脂バランス・明るさ・シミ・シワ・キメ・くま)
+          </li>
+            
+          <li class="summary-item summary-personal-color">
+            <strong class="summary-title">
+              2️⃣ パーソナルカラー診断でできること</strong><br>
+              - 春・夏・秋・冬の4シーズンタイプに分類します。<br>
+              似合う色を見つけて、メイクやファッションに活かしましょう。
+          </li>
+            
+          <li class="summary-item summary-face-type">
+            <strong class="summary-title">
+               3️⃣ 顔タイプ診断でできること</strong><br>
+               - 顔の特徴に基づいて、16種類のタイプからあなたに似合うスタイルを提案します。
+          </li>
+        </ul>
+      </div>
+      
+      
+      <section class="menu-section">
+        <h2>診断メニュー</h2>
+        <p>始めるには以下の３つのボタンから選択してください</p>
+        
+        <ul class="menu-button-list">
+          <li>
+            <a href="{{ url_for('skinQ') }}" class="menu-btn" data-modal-target="skin" 
+            data-module="Modal PushDataLayer" data-ga-Category="hadamite_shidan_e" data-ga-label="hada_01">肌診断</a>
+          </li>
+        
+          <li>
+            <a href="             " class="menu-btn" data-modal-target="personal_color" 
+            data-module="Modal PushDataLayer" data-ga-Category="hadamite_shidan_e" data-ga-label="personal_color_01">パーソナルカラー診断</a>
+          </li>
+        
+          <li>
+            <a href="              " class="menu-btn" data-modal-target="makeup" 
+            data-module="Modal PushDataLayer" data-ga-Category="hadamite_shidan_e" data-ga-label="makeup_01">顔タイプ診断</a>
+          </li>
+      </section>
+    </main>
+    
+    
+    
+    <footer id="footer">
+      <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+      <div id="Copyright">
+        &copy; 2025 ビューティーチェックアプリ
+      </div>
+    </footer>
+  
+  </body>
+</html>

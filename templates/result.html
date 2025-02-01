@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌診断結果</title>
+    
+    <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+     <!-- Googleフォント -->
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    </head>
+    
+    
+    <body>
+      <header>
+        <img src="{{ url_for('static', filename='fixed-images/header_welcome.jpg') }}" alt="ヘッダー画像">
+      </header>
+      
+      <div class="top-area"> 
+        <h1 class="main-title">解析結果</h1>
+        
+
+        <div class="result-images">
+          <h2>撮影画像</h2>
+          <img id="originalImage" src="{{ original_image }}" alt="撮影画像" width="300">
+          <h2>顔トリミング後</h2>
+          <img id="trimmedImage" src="{{ trimmed_image }}" alt="トリミング画像" width="300">
+          <h2>解析後画像</h2>
+          <img id="processedImage" src="{{ processed_image }}" alt="解析後画像" width="300">
+        </div>
+
+        
+        <h2>肌解析リザルト</h2>
+        <canvas id="radarChart"></canvas>
+        
+        <h2>肌診断結果</h2>
+        <p><strong>水分量:</strong> {{ moisture_level }}%</p>
+        <p><strong>皮脂バランス:</strong> {{ oil_level }}%</p>
+        <p><strong>明るさ:</strong> {{ brightness }}</p>
+        <p><strong>シミ:</strong> {{ spots }}</p>
+        <p><strong>シワ:</strong> {{ wrinkles }}</p>
+        <p><strong>キメ:</strong> {{ texture_fineness }}</p>
+        <p><strong>くま:</strong> {{ dark_circles }}</p>
+      </div>  
+
+
+    
+    <footer id="footer">
+        <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+        <p>&copy; 2025 ビューティーチェックアプリ</p>
+    </footer>
+
+
+    
+     <!-- Chart.js のCDNを最初に読み込む -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+     <!-- Flask の static フォルダから chart.js を読み込む -->
+     <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+
+
+</body>
+
+</html>

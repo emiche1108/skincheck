@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解析中・・・</title>
+
+    <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css') }}">
+
+    <!-- Googleフォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <div id="loading-screen">
+        <div class="loader">
+            <div class="circle pink"></div>
+            <div class="circle beige"></div>
+        </div>
+        <div class="loading-text">Loading...</div>
+    </div>
+    
+     <!-- hidden input に `filename` を埋め込む -->
+     <input type="hidden" id="filename" value="{{ filename }}">
+
+    <!-- JavaScriptファイル -->
+    <script src="{{ url_for('static', filename='js/animation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+
+</body>
+</html>

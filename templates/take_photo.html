@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌診断 STEP3/3</title>
+
+    <!-- Flaskの url_for関数で、CSS ファイルを読み込む -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+    <!-- Googleフォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    
+    <!-- faceAPIを読み込む -->
+    <script defer src="{{ url_for('static', filename='js/face-api.min.js') }}"></script>
+    
+   <!-- javascriptを読み込む -->
+    <script src="{{ url_for('static', filename='js/take-photo.js') }}" defer></script>
+
+</head>
+
+
+
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='fixed-images/header_skin.jpg') }}" alt="ヘッダー画像">
+    </header>
+
+
+    <main>
+        <section id="upload">
+            <div class="top-area">
+                <h1 class="main-title">肌診断</h1>
+                <p class="step">STEP 3/3</p>
+            </div>
+
+            <div>
+                <p>「撮影開始」ボタンを押すとカメラが起動します。</p>
+                <p> カメラ起動後<br>
+                    顔を認識できない場合は、警告が表示されます。<br>
+                    撮影位置の調整を行なった後「撮影する」ボタンを押してください。</p>
+            </div>
+
+            <!-- 撮影開始ボタン -->
+            <div id="start-camera">
+                <button class="start-camera" onclick="startCamera()">撮影開始</button>
+            </div>
+
+            <!-- カメラ映像 (最初は非表示) -->
+            <div id="camera-container" style="display: none;">
+                <div class="camera-preview" >
+                    
+                    <!-- カメラ映像とキャンバスを重ねる -->
+                     <div style="position: relative;">
+                        <!-- カメラ -->
+                         <video id="video" width="640" height="480" autoplay></video>
+                         <!-- キャンバス -->
+                          <canvas id="canvas" style="position: absolute; top: 0; left: 0;"></canvas>
+                        </div>
+
+                    <!-- 撮影ボタン capturePhoto() 関数-->
+                     <div class="camera-button">
+                        <button id="take-photo" class="take" onclick="capturePhoto()">写真を撮る</button>
+                    </div>
+                    
+                    <!-- エラーメッセージ -->
+                     <div id="error-message" style="display: none;"></div>
+                     
+                     <!-- 写真を一時的に保持する非表示のエリア -->
+                      <canvas id="photo-canvas" style="display:none;"></canvas>
+                      <form id="photoForm" action="{{ url_for('take_photo_page') }}" method="post" enctype="multipart/form-data" style="display:none;">
+                        <input type="hidden" id="photoData" name="photoData">
+                    </form>
+                    
+                    <!-- 注意書き -->
+                     <div class="small-text notice-text">
+                        <p>※アップロードされた画像は解析後に削除されます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer id="footer">
+        <img src="{{ url_for('static', filename='fixed-images/footer.jpeg') }}" alt="フッター画像">
+        <div id="Copyright">
+            &copy; 2025 ビューティーチェックアプリ
+        </div>
+    </footer>
+
+</body>
+</html>
